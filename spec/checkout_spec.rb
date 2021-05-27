@@ -16,4 +16,19 @@ describe Checkout do
             expect(checkout.scan(item_three)).to eq [{code: 002, price: 4500}, {code: 003, price: 1995}]
         end
     end
+
+    describe '#total' do
+        it 'calculates the total sum of two items in the basket' do
+            checkout.scan(item_one)
+            checkout.scan(item_two)
+            expect(checkout.total).to eq(54.25)
+        end
+
+        it 'calculates the total sum of three items in the basket' do
+            checkout.scan(item_one)
+            checkout.scan(item_two)
+            checkout.scan(item_three)
+            expect(checkout.total).to eq(74.20)
+        end
+    end
 end

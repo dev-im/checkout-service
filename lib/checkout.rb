@@ -8,6 +8,10 @@ class Checkout
         @basket << {code: item.code, price: item.price}
     end
 
+    def total
+        total_sum
+    end
+
     private
 
     def total_sum
